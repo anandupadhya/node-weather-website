@@ -5,6 +5,7 @@ const geocode = require('./utils/geocode');
 const forecast = require('./utils/forecast');
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 //Paths
 const publicDirPath = path.join(__dirname, '../public');
@@ -69,7 +70,7 @@ app.get('/weather', (req, res) => {
         });
     });
 });
-
+3000
 app.get('/help/*', (req, res) => {
     res.render('404', {
         title: '404: HELP NOT FOUND!',
@@ -86,6 +87,6 @@ app.get('*', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log('SERVER STARTED IS RUNNING ON PORT 3000');
+app.listen(port, () => {
+    console.log(`SERVER STARTED IS RUNNING ON PORT ${port}`);
 });
