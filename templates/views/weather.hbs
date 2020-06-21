@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Weather: {{location}}</title>
+    <link rel="icon" href="/img/weather.png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="main-content">
+        {{>header}}
+        <p><h3>{{location}}</h3></p>
+        <p>Lat: {{latitude}} Lon: {{longitude}}</p>
+        <p>{{forecast}}</p>
+    </div>
+    {{>footer}}
+</body>
+
+</html>
