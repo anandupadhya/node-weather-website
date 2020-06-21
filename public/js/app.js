@@ -9,16 +9,16 @@ weatherForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const address =  search.value;
 
-    locationDisplay.textContent = 'Loading...';
-    forecastDisplay.textContent = '';
+    locationDisplay.innerHTML = 'Loading...';
+    forecastDisplay.innerHTML = '';
     
     fetch(`/weather?address=${address}`).then((res) => {
         res.json().then((data) => {
             if (data.error) {
-                locationDisplay.textContent = data.error;
+                locationDisplay.innerHTML = data.error;
             } else {
-                locationDisplay.textContent = data.location;
-                forecastDisplay.textContent = data.forecast;
+                locationDisplay.innerHTML = `<h2>${data.location}</h2>`;
+                forecastDisplay.innerHTML = data.forecast;
             }
         });
     });

@@ -8,11 +8,11 @@ const forecast = (latitude, longitude, callback) => {
         } else if (body.error || body.location.name === null) {
             callback('Something wrong with the location provided', undefined);
         } else {
-            const { weather_descriptions, temperature, feelslike, precip} = body.current;
+            const { weather_descriptions, temperature, feelslike, precip, humidity} = body.current;
             if(weather_descriptions.length === 0){
                 callback(undefined, 'Sorry. Weather data currently unavailable.')
             } else {
-                callback(undefined, `It's currently ${weather_descriptions[0].toLowerCase()} and ${temperature} degrees. It feels like ${feelslike} degrees. There's a ${precip}% chance of rain.`);
+                callback(undefined, `It's currently ${weather_descriptions[0].toLowerCase()} and ${temperature} degrees.<br><br>It feels like ${feelslike} degrees. Relative humidity is at ${humidity}%.<br><br>There's a ${precip}% chance of rain.`);
             }
         }
     })
