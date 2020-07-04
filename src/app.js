@@ -70,7 +70,7 @@ app.get('/weather', (req, res) => {
         });
     });
 });
-3000
+
 app.get('/help/*', (req, res) => {
     res.render('404', {
         title: '404: HELP NOT FOUND!',
